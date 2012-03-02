@@ -4,3 +4,34 @@
 // Time Travel
 
 
+//Declare Variables
+
+
+//Initial Output
+
+
+//PROCEDURE
+
+//NUMBER
+
+//BOOLEAN
+
+//ARRAY
+
+//STRING
+
+
+//OUTPUT
+//Procedure Output
+
+//Number Output
+
+//Spacer
+
+//Boolean Output
+
+//Spacer
+
+//Array Output
+
+//String Output
