@@ -23,34 +23,39 @@ var	myYear = 1985,
 var timeTravel = function(time) {
 	if (yearsTraveled != 0) {
 		console.log("Only 88 mph and 1.21 gigawatts later, and I've violated the laws of physics!");
-		console.log("I've travelled " + yearsTraveled + " years from " + myYear + " to the year " + timeline + ".");
+		console.log("I've travelled " + time + " years from " + myYear + " to the year " + timeline + ".");
 		if (timeline < myYear) {
-			console.log("I've travelled through time to the past!");
+			console.log("Great scott!  I've travelled through time to the past!");
 			console.log(" ");
 		} else {
-			console.log("I've travelled through time to the future!");
+			console.log("I've travelled through time to the future!  This is heavy!");
 			console.log(" ");
 		}
 	} else {
-		console.log("Well, it's a " + timeMachine + ", so of course it didn't go anywhere.");
+		console.log("Well, it's a " + timeMachine + ", so of course it didn't go anywhere.  But it got me there in style.");
 		console.log(" ");
 	}
 }; //timeTravel
 
-var 	timeline = 1955, //remove later
-	paradox = "Mom and dad never meet, and I never...ex...ist...ed...",
-	yearsTraveled = 30; //remove later
-
 //BOOLEAN
 //Don't mess up the timeline
-var avoidParadoxes = function(year, paradox) {
-	var parentsNeverMeet = "",
-	westernRomance = "",
-	
-	if (year = 1955) {
-
+//If time travel is true, and "time revision" has happened, and "time correction" hasn't happened, then Paradox is true.  Otherwise, if at least one of the above conditions isn't met, then Paradox is false.
+var avoidParadox = function(year, paradox) {
+	timeRevision = "";
+	if (year != 0) {
+		timeRevision = true;
+	} else {
+		timeRevision = false;
 	}
-}
+	if (timeRevision === true) {
+		console.log("By being here, I have undone the already-did!  I have created a paradox!");
+		console.log(paradox[1]);
+		console.log(" ");
+	} else {
+		console.log("No paradox... Yet.");
+	}
+	return timeRevision;
+};//avoidParadox
 
 //NUMBER
 //Fix the timeline that I messed up
@@ -62,8 +67,18 @@ var avoidParadoxes = function(year, paradox) {
 //Get home to my own timeline
 
 //OUTPUT
+var 	parentsNeverMeet = "",  //update later.  Should be an array that is returned.
+	westernRomance = "",  //update later.  Should be an array that is returned.
+	pleasureParadise = "", //update later.  Should be an array that is returned.
+	timeline = 1955, //remove later
+	sayParadox = "Mom and dad never met, and I now...I'm...fading...from...photos...", //Will be returned string concatenation of timeline+paradoxOutput+timeCorrection.
+	sayResolution = "", // example string: " but I got them to kiss at the Under the Sea Ball"
+	timeResolution = true,
+	timeParadox = [timeline, sayParadox, timeResolution, sayResolution],
+	yearsTraveled = 30; //remove later
+
 timeTravel(yearsTraveled); //move later
-avoidParadox(timeline,paradox);
+avoidParadox(yearsTraveled,timeParadox);
 
 //Procedure Output
 
