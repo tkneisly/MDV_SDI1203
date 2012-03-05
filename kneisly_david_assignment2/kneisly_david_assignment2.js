@@ -38,13 +38,13 @@ yearsTraveled = 30; //remove later
 timeTravel(yearsTraveled); //remove later
 
 //NUMBER
-console.log("Number:  Fix the timeline that I messed up");
+console.log("Number:  Fix the timeline that I messed up"); //remove later
 
 //STRING
-console.log("String:  Fix the time machine, because it's a Delorean");
+console.log("String:  Fix the time machine, because it's a Delorean"); //remove later
 
 //ARRAY
-console.log("Array:  Get home to my own timeline");
+console.log("Array:  Get home to my own timeline"); //remove later
 
 
 //OUTPUT
