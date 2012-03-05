@@ -19,35 +19,35 @@ var	myYear = 1985,
 
 
 //PROCEDURE
-console.log("Procedure:  Travel to some other time");
+//Travel to some other time
 
 var timeTravel = function(time) {
 	if (yearsTraveled != 0) {
 		console.log("I managed to get my " + timeMachine + " to work!");
-		
 		console.log("I've travelled " + yearsTraveled + " years from " + myYear + " to the year " + timeline + ".");
 	} else {
-		console.log("This " + timeMachine + " is a piece of garbage!");
+		console.log("Well, it's a " + timeMachine + ", so of course I didn't go anywhere.");
 	}
 }; //timeTravel
 
-//BOOLEAN
-console.log("Boolean:  Don't mess up the timeline"); //remove later
 var timeline = 2015; //remove later
-yearsTraveled = 30; //remove later
-timeTravel(yearsTraveled); //remove later
+yearsTraveled = 0; //remove later
+
+//BOOLEAN
+//Don't mess up the timeline
 
 //NUMBER
-console.log("Number:  Fix the timeline that I messed up"); //remove later
+//Fix the timeline that I messed up
 
 //STRING
-console.log("String:  Fix the time machine, because it's a Delorean"); //remove later
+//Fix the time machine, because it's a Delorean
 
 //ARRAY
-console.log("Array:  Get home to my own timeline"); //remove later
-
+//Get home to my own timeline
 
 //OUTPUT
+timeTravel(yearsTraveled); //move later
+
 //Procedure Output
 
 //Number Output
@@ -61,3 +61,5 @@ console.log("Array:  Get home to my own timeline"); //remove later
 //Array Output
 
 //String Output
+
+
