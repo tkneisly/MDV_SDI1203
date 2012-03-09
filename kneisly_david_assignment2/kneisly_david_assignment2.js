@@ -6,11 +6,11 @@
 
 //Declare
 var	myYear = 1985,
+	alternateYear = 1955,
 	myLocation = "Hill Valley",
 	yearsTraveled = "", //review later--should have date difference returned
 	timeMachine = "Delorean",
-	timeMachineSystems = ["Time circuits on.","Flux Capacitor...fluxxing.","Engine running."],
-	timeMachineVersion = [1985,2015,1955,1885]
+	timeMachineSystems = ["Time circuits on.","Flux Capacitor...fluxxing.","Engine running.",88];
 	/*timeParadox = "" //review later--might return "true/false"*/
 	;
 
@@ -57,14 +57,45 @@ var avoidParadox = function(year, paradox) {
 	return timeRevision;
 };//avoidParadox
 
-//NUMBER
-//Fix the timeline that I messed up
-
 //STRING
-//Fix the time machine, because it's a Delorean
+//Fix the timeline
 
 //ARRAY
 //Get home to my own timeline
+var getHome = function(timeline,systems) {
+	readyToTravel = "";
+	console.log("A quick systems check, and I'll be ready to get to my own time.");
+	for (var i = 0; i < systems.length; i++) {
+		system = systems[i];
+		if (system != 3) {
+			console.log("System number " + i++ + "." + system);
+		} else {
+			console.log("We're ready to get this baby up to " + system + " miles per hour!");
+		}
+	}
+};
+
+//NUMBER
+//Get the time machine up to 88 miles per hour
+var accelerateTimeMachine = function(maxSpeed) {
+	speed = 0;
+	console.log("I must get to exactly " + maxSpeed + " miles per hour before I can time travel!");
+	console.log("Put the pedal to the metal!");
+	var speedometer = maxSpeed;
+	while (speed < maxSpeed) {
+		console.log("I am at " + speed + " miles per hour.");
+		speed = (speed + 11);
+	};
+	if (maxSpeed === speed) {
+		console.log("I have reached " + speed + " miles per hour.");
+		console.log("Come on, space-time continuum, let's see what you've got!!!");
+		console.log(" ");
+	} else {
+		console.log("I was waaaay off!  I'll never get out of this timeline!");
+		console.log(" ");
+	}
+	return speed;			
+}; //accelerateTimeMachine
 
 //OUTPUT
 var 	parentsNeverMeet = "",  //update later.  Should be an array that is returned.
@@ -77,8 +108,15 @@ var 	parentsNeverMeet = "",  //update later.  Should be an array that is returne
 	timeParadox = [timeline, sayParadox, timeResolution, sayResolution],
 	yearsTraveled = 30; //remove later
 
+
 timeTravel(yearsTraveled); //move later
 avoidParadox(yearsTraveled,timeParadox);
+accelerateTimeMachine(timeMachineSystems[3]); 
+getHome(alternateYear,timeMachineSystems);
+
+console.log(speed);
+console.log(timeRevision);
+
 
 //Procedure Output
 
