@@ -8,7 +8,6 @@
 var	myYear = 1985,
 	alternateYear = 1955,
 	maxSpeed = 88,
-	myLocation = "Hill Valley",
 	timeMachine = "Delorean",
 	timeMachineSystems = ["Time circuits on.","Flux Capacitor...fluxxing.","Engine running."];
 	/*timeParadox = "" //review later--might return "true/false"*/
@@ -21,111 +20,115 @@ var	myYear = 1985,
 
 //PROCEDURE
 //Travel to some other time
-var timeTravel = function(start,destination) {
-	yearsTraveled = Math.abs(myYear - alternateYear);
-	if (yearsTraveled != 0) {
+var 	timeTravel = function(start,destination) {
+	var 	yearsTraveled = Math.abs(start - destination);
+	if 	(yearsTraveled != 0) {
 		console.log("I've violated the laws of physics!");
-		console.log("I've travelled " + yearsTraveled + " years from " + myYear + " to the year " + alternateYear + ".");
-		if (alternateYear < myYear) {
-			console.log("Great scott!  I've travelled through time to the past!");
+		console.log("I time-traveled " + yearsTraveled + " years from " + start + " to the year " + destination + ".");
+		if 	(destination < start) {
+			console.log("Great scott!  I've traveled through time to the past!");
 			console.log(" ");
 		} else {
-			console.log("I've travelled through time to the future!  This is heavy!");
+			console.log("I've traveled through time to the future!  This is heavy!");
 			console.log(" ");
 		}
 	} else {
-		console.log("Well, it's a " + timeMachine + ", so of course it didn't go anywhere.  But it got me there in style.");
-		console.log(" ");
+		console.log("Well, it's a " + timeMachine + ", so of course I didn't go anywhere.  But I did get there in style.");
 	}
 }; //timeTravel
 
 //BOOLEAN
-//Don't mess up the timeline
 //If time travel is true, and "time revision" has happened, and "time correction" hasn't happened, then Paradox is true.  Otherwise, if at least one of the above conditions isn't met, then Paradox is false.
-var avoidParadox = function(year, paradox) {
-	timeRevision = "";
-	if (year != 0) {
-		timeRevision = true;
-	} else {
-		timeRevision = false;
-	}
-	if (timeRevision === true) {
+var 	avoidParadox = function(start,destination) {
+	var 	yearsTraveled = Math.abs(start - destination),
+		timeParadox = " ";
+		future = " ";
+	if 	(yearsTraveled != 0) {
+		timeParadox = true;
 		console.log("By being here, I have undone the already-did!  I have created a paradox!");
-		console.log(paradox[1]);
 		console.log(" ");
+		if 	(destination < start) {
+			future = false;
+		} else if (destination > start) {
+			future = true;
+		}
 	} else {
-		console.log("No paradox... Yet.");
+		timeParadox = false;
+		console.log("Guess there's no such thing as time travel.  Doc Brown, you wacky guy!");
 		console.log(" ");
-	}
-	return timeRevision;
+	};
+	paradox = timeParadox,
+	backToTheFuture = future;
+	return 	paradox,
+		backToTheFuture;
 };//avoidParadox
 
 //STRING
 //Fix the timeline
-//Use "timeRevision" returned value to output what the paradox is
+var getParadox = function(timeline,)
 
 //ARRAY
 //Get home to my own timeline
-var getHome = function(howFast,systems) {
-	readyToTravel = "",
-	newSystems = [];
+var 	getHome = function(howFast,systems) {
 	console.log("A quick systems check, and I'll be ready to get to my own time.");
-	for (var i = 0; i < (systems.length ); i++) {
+	for 	(var i = 0; i < (systems.length ); i++) {
 		system = systems[i];
 		console.log("System number " + (i + 1) + ".  " + system);
-	}
-	systems[i] = howFast,
-	newSystems = systems;
-	console.log("System number " + (i + 1) + ".  Speed.  I'm going to need to get this thing up to " + howFast + " miles per hour.");
+	};
+	sayHowFast = "I'm going to need to get this baby up to " + howFast + " miles per hour.";
+	console.log("System number " + (i + 1) + ".  Speed.  " + sayHowFast);
 	console.log(" ");
-	return newSystems;
+	systems[i] = sayHowFast,
+	newSystems = systems;
+	return 	newSystems;
 };
 
 //NUMBER
 //Get the time machine up to 88 miles per hour
 var accelerateTimeMachine = function(speed) {
-	mph = 0;
-	console.log("Put the pedal to the metal!");
+	var 	mph = 0,
+		seconds = 0,
+		timeLimit = 10;
+	console.log("I've got to get up to speed in " + timeLimit + " seconds.  Put the pedal to the metal!");
 	while (mph < speed) {
+		seconds ++;
 		console.log("I am at " + mph + " miles per hour.");
 		mph = (mph + 11);
-	};
-	if (mph === speed) {
-		console.log("I have reached " + mph + " miles per hour.");
+	}
+	if (seconds < timeLimit) {
+		console.log("I have reached " + mph + " miles per hour in " + seconds + " seconds.");
 		console.log("Come on, space-time continuum, let's see what you've got!!!");
 		console.log(" ");
 	} else {
-		console.log("I was waaaay off!  I'll never get out of this timeline!");
-		console.log(" ");
+		console.log("It took too long to accelerate!  I've missed my window!");
 	}
-	return mph;			
+	secondsCount = seconds;
+	return 	secondsCount;			
 }; //accelerateTimeMachine
 
 //OUTPUT
 var 	parentsNeverMeet = "",  //update later.  Should be an array that is returned.
 	westernRomance = "",  //update later.  Should be an array that is returned.
 	pleasureParadise = "", //update later.  Should be an array that is returned.
-	sayParadox = "Mom and dad never met, and I now...I'm...fading...from...photos...", //Will be returned string concatenation of timeline+paradoxOutput+timeCorrection.  Multiple output lines.
+	sayParadox = "Mom and dad never met each other, and I now...I'm...fading...from...photos...", //Will be returned string concatenation of timeline+paradoxOutput+timeCorrection.  Multiple output lines.
 	sayResolution = "", // example string: " but I got them to kiss at the Under the Sea Ball"
-	timeResolution = true,
-	timeParadox = [alternateYear, sayParadox, timeResolution, sayResolution],
-	yearsTraveled = 30; //remove later
+	timeResolution = true;
+	//timeParadox = [alternateYear, sayParadox, timeResolution, sayResolution];
 
 
 //Procedure Output
-timeTravel(yearsTraveled);
+timeTravel(myYear,alternateYear);
 //Boolean Output
-avoidParadox(yearsTraveled,timeParadox);
-//Array Output
-getHome(maxSpeed,timeMachineSystems);
-//Number Output
-accelerateTimeMachine(newSystems[3]); 
-
-
-
-
-
-
-
-
-//String Output
+avoidParadox(myYear,alternateYear);
+var 	output = function(paradox) {
+	if 	(paradox === true) {
+		//Array Output
+		getHome(maxSpeed,timeMachineSystems);
+		//Number Output
+		accelerateTimeMachine(maxSpeed);
+	} else {
+		return;
+	}
+};
+output(paradox);
+console.log(backToTheFuture);
