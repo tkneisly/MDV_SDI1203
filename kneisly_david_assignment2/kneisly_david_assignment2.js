@@ -5,17 +5,23 @@
 
 
 //Declare
-var	myYear = 1985,
-	alternateYear = 1955,
-	maxSpeed = 88,
+var	timelineNumber = 1,
+	myYear = 1985,
+	timelines = [1985,1885,1955,2015],
+	alternateYear = timelines[timelineNumber],
 	timeMachine = "Delorean",
+	maxSpeed = 88,
+	possibleParadoxes = [0,1,2],
 	timeMachineSystems = ["Time circuits on.","Flux Capacitor...fluxxing.","Engine running."];
-	/*timeParadox = "" //review later--might return "true/false"*/
 	;
 
 
 //Initial Output
-//some comment about 88mph and 1.21 gigawatts, but use returned values for the 88mph part
+console.log("My good friend, Doc, says he's invented a time machine.");
+console.log("So, I do what any rational person would do.");
+console.log("I hop in and give it a try!");
+console.log("So...will I time travel?");
+console.log(" ");
 
 
 //PROCEDURE
@@ -42,34 +48,52 @@ var 	timeTravel = function(start,destination) {
 var 	avoidParadox = function(start,destination) {
 	var 	yearsTraveled = Math.abs(start - destination),
 		timeParadox = " ";
-		future = " ";
 	if 	(yearsTraveled != 0) {
 		timeParadox = true;
 		console.log("By being here, I have undone the already-did!  I have created a paradox!");
-		console.log(" ");
-		if 	(destination < start) {
-			future = false;
-		} else if (destination > start) {
-			future = true;
-		}
 	} else {
 		timeParadox = false;
 		console.log("Guess there's no such thing as time travel.  Doc Brown, you wacky guy!");
-		console.log(" ");
 	};
-	paradox = timeParadox,
-	backToTheFuture = future;
-	return 	paradox,
-		backToTheFuture;
-};//avoidParadox
+	isParadox = timeParadox;
+	return 	isParadox;
+}; //avoidParadox
+
+//ARRAY (Not part of the original assignment)
+//What's the paradox?
+var getParadox = function(timeline) {
+	var 	timelineProblem = "";
+	if (timeline === 1955) {
+		timelineProblem = "Mom and dad never met each other, and I now...I'm...fading...from...photos...";
+	} else if (timeline === 1885) {
+		timelineProblem = "Doc's in trouble over a matter of $80!";
+	} else if (timeline === 2015) {
+		timelineProblem = "Happily ever after is incredibly unhappy!";
+	}
+	sayParadox = timelineProblem;
+	return 	sayParadox;
+}; //getParadox
 
 //STRING
 //Fix the timeline
-var getParadox = function(timeline,)
+var getSolution = function(timeline,paradox) {
+	var 	solution = "";
+	if (timeline === 1955) {
+		solution = ", but I got them to kiss at the Under the Sea dance, so everything's fine!";
+	} else if (timeline === 1885) {
+		solution = "  But we're pushing ourselves out of the old west via steam engine!  Makes sense!";
+	} else if (timeline === 2015) {
+		solution = "  Gotta keep the kids outta jail, while not running into future me!";
+	}
+	saySolution = paradox + solution;
+	return 	saySolution;
+}; //getSolution
 
 //ARRAY
 //Get home to my own timeline
-var 	getHome = function(howFast,systems) {
+var 	getHome = function(howFast,systems,solution) {
+	console.log(solution);
+	console.log(" ");
 	console.log("A quick systems check, and I'll be ready to get to my own time.");
 	for 	(var i = 0; i < (systems.length ); i++) {
 		system = systems[i];
@@ -81,7 +105,7 @@ var 	getHome = function(howFast,systems) {
 	systems[i] = sayHowFast,
 	newSystems = systems;
 	return 	newSystems;
-};
+}; //getHome
 
 //NUMBER
 //Get the time machine up to 88 miles per hour
@@ -89,10 +113,10 @@ var accelerateTimeMachine = function(speed) {
 	var 	mph = 0,
 		seconds = 0,
 		timeLimit = 10;
-	console.log("I've got to get up to speed in " + timeLimit + " seconds.  Put the pedal to the metal!");
+	console.log("I've got to get up to speed in under " + timeLimit + " seconds.  Put the pedal to the metal!");
 	while (mph < speed) {
 		seconds ++;
-		console.log("I am at " + mph + " miles per hour.");
+		console.log("I am at " + mph + " miles per hour at " + seconds + " seconds.");
 		mph = (mph + 11);
 	}
 	if (seconds < timeLimit) {
@@ -106,29 +130,25 @@ var accelerateTimeMachine = function(speed) {
 	return 	secondsCount;			
 }; //accelerateTimeMachine
 
+
 //OUTPUT
-var 	parentsNeverMeet = "",  //update later.  Should be an array that is returned.
-	westernRomance = "",  //update later.  Should be an array that is returned.
-	pleasureParadise = "", //update later.  Should be an array that is returned.
-	sayParadox = "Mom and dad never met each other, and I now...I'm...fading...from...photos...", //Will be returned string concatenation of timeline+paradoxOutput+timeCorrection.  Multiple output lines.
-	sayResolution = "", // example string: " but I got them to kiss at the Under the Sea Ball"
-	timeResolution = true;
-	//timeParadox = [alternateYear, sayParadox, timeResolution, sayResolution];
-
-
 //Procedure Output
 timeTravel(myYear,alternateYear);
 //Boolean Output
 avoidParadox(myYear,alternateYear);
-var 	output = function(paradox) {
-	if 	(paradox === true) {
+//Other Output
+var 	output = function(isParadox) {
+	if 	(isParadox === true) {
+		//Array Output (non-mapped)
+		getParadox(timelines[timelineNumber]);
+		//String Output
+		getSolution(timelines[timelineNumber],sayParadox);
 		//Array Output
-		getHome(maxSpeed,timeMachineSystems);
+		getHome(maxSpeed,timeMachineSystems,saySolution);
 		//Number Output
 		accelerateTimeMachine(maxSpeed);
 	} else {
 		return;
 	}
-};
-output(paradox);
-console.log(backToTheFuture);
+}; //output
+output(isParadox);
