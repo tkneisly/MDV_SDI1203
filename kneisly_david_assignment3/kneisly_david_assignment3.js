@@ -3,6 +3,20 @@
 // David Tyler Kneisly
 // Time Travel Objects
 
+// Define the Delorean
+
+var whichDelorean = {
+	origin: 1985,  //Number Property
+	type: "Delorean", //String
+	powerSource: [
+		"Plutonium",
+		"Lightning",
+		"Mr. Fusion"
+	], //Array
+	driver: 
+}
+
+
 
 // TERMINATORS
 // Start
@@ -32,18 +46,25 @@
 
 
 
-// PROCESS
+// DECISIONS
+// Conditional
+
+// Nested Conditional
+
+
+
+// PROCESSES
 // Nested Loop
 
 // While Loop
 
-// For Loop
+// For Loop  (If in an object, use the For In loop), example: for (var key in whichDelorean) {console.log("Key: " + key + ".  Value: ", whichDelorean[key])};
 
-// Math
+// Math (possibilities:  return(timelines ++); )
 
 
 
-// PREDEFINED PROCESS
+// PREDEFINED PROCESSES
 // Method:  Procedure
 
 // Method:  Function
@@ -54,7 +75,7 @@
 
 
 
-// DOCUMENT
+// DOCUMENTS
 // JSON Data
 
 
@@ -74,3 +95,4 @@
 
 // DISPLAY
 // Output
+
