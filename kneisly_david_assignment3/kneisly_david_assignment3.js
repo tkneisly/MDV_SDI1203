@@ -1,11 +1,11 @@
 // SDI 1203
 // Week 3 Activity: Project 3
 // David Tyler Kneisly
-// Time Travel Objects
+// Too Many Deloreans!
 
 // Define the Delorean
 
-var whichDelorean = {
+var timeMachine = {
 	origin: 1985,  //Number Property
 	type: "Delorean", //String
 	powerSource: [
@@ -13,8 +13,15 @@ var whichDelorean = {
 		"Lightning",
 		"Mr. Fusion"
 	], //Array
-	driver: 
+	human: driver = {
+		name: " ",
+		good: true,
+		origin: 0 
+	} // Object Property 
+
 }
+
+for (var key in timeMachine) {console.log("Key: " + key + ".  Value: ", timeMachine[key])};
 
 
 
@@ -36,13 +43,13 @@ var whichDelorean = {
 
 // Property:  Boolean
 
-// Property:  Array
+// Property:  Array (powerSource)
 
-// Property:  Number
+// Property:  Number (origin)
 
-// Property:  String
+// Property:  String (type)
 
-// Property:  Object
+// Property:  Object (human.driver)
 
 
 
@@ -69,14 +76,15 @@ var whichDelorean = {
 
 // Method:  Function
 
-// Method:  Accessor
+// Method:  Accessor (A function (or method) that get you something out of the object)
 
-// Method:  Mutator
+// Method:  Mutator (A function (method) that changes something within the object)
 
 
 
 // DOCUMENTS
-// JSON Data
+// JSON Data  (Should contain the data to be entered into the human.driver object)
+
 
 
 
