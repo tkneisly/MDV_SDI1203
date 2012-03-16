@@ -1,20 +1,42 @@
 var json = {
-	"human": {
-		"Marty": {
+	"driver": [
+		{
+			"name": "Marty",
 			"good": true,
-			"origin": 1985
+			"year": 1985
 		},
-		"Present Doc": {
+		{
+			"name": "Doc Brown",
 			"good": true,
-			"origin": 1985
+			"year": 1985
 		},
-		"Younger Doc": {
-			"good": true,
-			"origin": 1955
-		},
-		"Young Biff": {
+		{
+			"name": "Biff",
 			"good": false,
-			"origin": 1955
+			"year": 1955
+		},
+		{
+			"name": "Blacksmith Brown",
+			"good": true,
+			"year": 1855
 		}
-	},
+	],
+	"timeline": [
+		{
+			"name": "Original",
+			"year": 1985
+		},
+		{
+			"name": "Alternate",
+			"year": 1985
+		},
+		{
+			"name": "The 50's",
+			"year": 1955
+		},
+		{
+			"name": "The Old West",
+			"year": 1855
+		}
+	]
 };

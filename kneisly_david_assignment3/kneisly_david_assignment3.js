@@ -5,24 +5,50 @@
 
 // Define the Delorean
 
-var timeMachine = {
-	origin: 1985,  //Number Property
+var whichDelorean = {
+	original: 1985,  //Number Property
 	type: "Delorean", //String
 	powerSource: [
 		"Plutonium",
 		"Lightning",
 		"Mr. Fusion"
 	], //Array
-	human: driver = {
+	timelines: [
+		json.timeline[1],
+		json.timeline[2],
+		json.timeline[3],
+		json.timeline[4]
+	],
+	human: person = {
 		name: " ",
 		good: true,
-		origin: 0 
-	} // Object Property 
+		year: 0 
+	}, // Object Property 
+	visitTimelines: function(json) {
+		for (var i = 0; i < json.timeline.length; i++) {
+			console.log(json.timeline[i].year);
+		}
+	}, // Method: Function
+	changeDriver: function(time,driver) {
+		if ((time.year === 1985) && (time.name === "Original")) {
+			console.loge(json.driver[1]);
+		} else if ((time.year === 1985) && (time.name === "Alternate")) {
+			console.log(json.driver[1]);
+		};
+		 
+	}
 
 }
 
-for (var key in timeMachine) {console.log("Key: " + key + ".  Value: ", timeMachine[key])};
+for (var key in whichDelorean) {console.log("Key: " + key + ".  Value: ", whichDelorean[key])};
 
+
+
+
+console.log(json.timeline[1].name,json.timeline[1].year);
+whichDelorean.visitTimelines(json);
+console.log(whichDelorean.timelines[1].name);
+whichDelorean.changeDriver(json.timeline[1],json.driver[1]);
 
 
 // TERMINATORS
@@ -65,7 +91,7 @@ for (var key in timeMachine) {console.log("Key: " + key + ".  Value: ", timeMach
 
 // While Loop
 
-// For Loop  (If in an object, use the For In loop), example: for (var key in whichDelorean) {console.log("Key: " + key + ".  Value: ", whichDelorean[key])};
+// For Loop  (visitTimelines);
 
 // Math (possibilities:  return(timelines ++); )
 
@@ -74,7 +100,7 @@ for (var key in timeMachine) {console.log("Key: " + key + ".  Value: ", timeMach
 // PREDEFINED PROCESSES
 // Method:  Procedure
 
-// Method:  Function
+// Method:  Function (visitTimelines)
 
 // Method:  Accessor (A function (or method) that get you something out of the object)
 
@@ -97,7 +123,7 @@ for (var key in timeMachine) {console.log("Key: " + key + ".  Value: ", timeMach
 
 // Argumnet:  String
 
-// Argument:  Object
+// Argument:  Object (visitTimeline - json)
 
 
 
