@@ -5,8 +5,19 @@
 
 // Define the Delorean
 
+
+// Global Variables
+var goodPrevails = true,
+	person = "Biff Tannen",
+	timeline = 0,
+	destinations = [],
+	outcome = " ",
+	finalDate = 0
+;
+
+
 var whichDelorean = {
-	original: 1985,  //Number Property
+	originalTime: 1985,  //Number Property
 	type: "Delorean", //String
 	powerSource: [
 		"Plutonium",
@@ -19,13 +30,13 @@ var whichDelorean = {
 		json.timeline[3],
 		json.timeline[4]
 	],
-	human: person = {
+	humanInterface: driver = {
 		name: " ",
 		good: true,
 		year: 0 
 	}, // Object Property 
-	visitTimelines: function(json) {
-		for (var i = 0; i < json.timeline.length; i++) {
+	visitTimelines: function(timeline,destinations) {
+		for (var i = 0; timeline < json.timeline.length; i++) {
 			console.log(json.timeline[i].year);
 		}
 	}, // Method: Function
@@ -38,15 +49,15 @@ var whichDelorean = {
 		 
 	}
 
-}
+};
 
-for (var key in whichDelorean) {console.log("Key: " + key + ".  Value: ", whichDelorean[key])};
+//for (var key in whichDelorean) {console.log("Key: " + key + ".  Value: ", whichDelorean[key])};
 
 
 
 
 console.log(json.timeline[1].name,json.timeline[1].year);
-whichDelorean.visitTimelines(json);
+whichDelorean.visitTimelines(timeline,destinations);
 console.log(whichDelorean.timelines[1].name);
 whichDelorean.changeDriver(json.timeline[1],json.driver[1]);
 
@@ -69,13 +80,13 @@ whichDelorean.changeDriver(json.timeline[1],json.driver[1]);
 
 // Property:  Boolean
 
-// Property:  Array (powerSource)
+// Property:  Array (powerSource) (check)
 
-// Property:  Number (origin)
+// Property:  Number (origin) (check)
 
-// Property:  String (type)
+// Property:  String (type) (check)
 
-// Property:  Object (human.driver)
+// Property:  Object (human.driver) (check)
 
 
 
@@ -113,7 +124,6 @@ whichDelorean.changeDriver(json.timeline[1],json.driver[1]);
 
 
 
-
 // DATA
 // Argument:  Boolean
 
@@ -125,6 +135,17 @@ whichDelorean.changeDriver(json.timeline[1],json.driver[1]);
 
 // Argument:  Object (visitTimeline - json)
 
+
+// RETURNS
+// Boolean
+
+// Array
+
+// Number
+
+// String
+
+// Object
 
 
 // DISPLAY
