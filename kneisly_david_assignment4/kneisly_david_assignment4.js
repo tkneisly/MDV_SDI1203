@@ -7,11 +7,11 @@
 
 var phoneNumber = "864-810-0318";
 var emailAddress = "mostamazingpersonever@gmail.com";
+var website = "http://www.facebook.com";
 
 //STRING
 //Does a string follow a pattern like a phone number?
-var checkPhone = function(number) 
-{
+var checkPhone = function(number) {
    phoneCheck = "";
    var phone = /^(\d{3})[- ](\d{3})[- ](\d{4})$/;
    if (number.match(phone)) {
@@ -23,11 +23,9 @@ var checkPhone = function(number)
 
 
 //Does a string follow a pattern like an email address?
-var checkEmail = function(address) 
-{
+var checkEmail = function(address) {
    emailCheck = "";
    var email = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
-   ///^([a-zA-Z0-9_.-])+@([a-zA-Z0-9.-])+\.([a-zA-Z]){2,4}$/;
    if (email.test(address)) {
       return (emailCheck = "The email address, '" + address + "', is valid.");
    } else {
@@ -35,18 +33,43 @@ var checkEmail = function(address)
    }
 };
 
+
+//Is a string a URL (with either HTTPS or HTTP)?
+var checkURL = function(url) {
+   urlCheck = "";
+   var isSecure = "";
+   var siteSecure = /(https)/;
+   var isSite = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+   if (isSite.test(url)) {
+      if  (siteSecure.test(url)) {
+         isSecure = "is a secure site.";
+      } else {
+         isSecure = "is not a secure site.";
+      }
+      return (urlCheck = "The web address, '" + url + "', is valid and " + isSecure);
+   } else {
+      return (urlCheck = "The web address, '" + url + "', is missing characters or is not a valid address.");
+   }
+};
+
+
+
+//String: Phone Number Format
 checkPhone(phoneNumber);
 console.log(phoneCheck);
 
+//String: Email Format
 checkEmail(emailAddress);
 console.log(emailCheck);
+
+//String: Check URL
+checkURL(website);
+console.log(urlCheck);
 
 
 /*
 
 STRINGS
-   * Does a string follow anaaa@bbb.ccc pattern like an email address?
-   * Is the string a URL? (Does it start with http: or https:?)
    * Title-case a string (split into words, then uppercase the first letter of each word)
    * Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" → "a/b/c".
 
