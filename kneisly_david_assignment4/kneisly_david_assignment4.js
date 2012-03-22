@@ -3,10 +3,33 @@
 // David Tyler Kneisly
 // Building Libraries
 
+//GLOBAL VARIABLES
+
+var phoneNumber = "864-810-0318";
+
+//STRING
+//Does a string follow a pattern like a phone number?
+var checkPhone = function(number) 
+{
+   phoneCheck = "";
+   var phone = /^(\d{3})[- ](\d{3})[- ](\d{4})$/;
+   if (number.match(phone)) {
+      return (phoneCheck = "Phone format is correct.");
+   } else {
+      return (phoneCheck = "Phone format is bad.");
+   }
+};
+
+checkPhone(phoneNumber);
+console.log(phoneCheck);
+
+
+
 
 /*
+
 STRINGS
-   * Does a string follow a 123-456-7890 pattern like a phone number?
+   * CHECK (Does a string follow a 123-456-7890 pattern like a phone number?)
    * Does a string follow anaaa@bbb.ccc pattern like an email address?
    * Is the string a URL? (Does it start with http: or https:?)
    * Title-case a string (split into words, then uppercase the first letter of each word)
