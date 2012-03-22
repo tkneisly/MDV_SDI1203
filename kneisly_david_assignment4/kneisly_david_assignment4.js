@@ -6,6 +6,7 @@
 //GLOBAL VARIABLES
 
 var phoneNumber = "864-810-0318";
+var emailAddress = "mostamazingpersonever@gmail.com";
 
 //STRING
 //Does a string follow a pattern like a phone number?
@@ -14,22 +15,36 @@ var checkPhone = function(number)
    phoneCheck = "";
    var phone = /^(\d{3})[- ](\d{3})[- ](\d{4})$/;
    if (number.match(phone)) {
-      return (phoneCheck = "Phone format is correct.");
+      return (phoneCheck = "Phone format for " + number + " is correct.");
    } else {
-      return (phoneCheck = "Phone format is bad.");
+      return (phoneCheck = "Phone format for " + number + " is bad.");
+   }
+};
+
+
+//Does a string follow a pattern like an email address?
+var checkEmail = function(address) 
+{
+   emailCheck = "";
+   var email = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
+   ///^([a-zA-Z0-9_.-])+@([a-zA-Z0-9.-])+\.([a-zA-Z]){2,4}$/;
+   if (email.test(address)) {
+      return (emailCheck = "The email address, '" + address + "', is valid.");
+   } else {
+      return (emailCheck = "The email address, '" + address + "', is NOT valid.");
    }
 };
 
 checkPhone(phoneNumber);
 console.log(phoneCheck);
 
-
+checkEmail(emailAddress);
+console.log(emailCheck);
 
 
 /*
 
 STRINGS
-   * CHECK (Does a string follow a 123-456-7890 pattern like a phone number?)
    * Does a string follow anaaa@bbb.ccc pattern like an email address?
    * Is the string a URL? (Does it start with http: or https:?)
    * Title-case a string (split into words, then uppercase the first letter of each word)
