@@ -9,6 +9,7 @@ var phoneNumber = "864-810-0318";
 var emailAddress = "mostamazingpersonever@gmail.com";
 var website = "https://www.facebook.com";
 var movieTitle = "back to the future";
+var jobs = "Programer, Analyst, Consultant, Secret Agent";
 
 
 //STRING
@@ -23,7 +24,6 @@ var checkPhone = function(number) {
    }
 };
 
-
 //Does a string follow a pattern like an email address?
 var checkEmail = function(address) {
    emailCheck = "";
@@ -34,7 +34,6 @@ var checkEmail = function(address) {
       return (emailCheck = "The email address, '" + address + "', is NOT valid.");
    }
 };
-
 
 //Is a string a URL (with either HTTPS or HTTP)?
 var checkURL = function(url) {
@@ -54,7 +53,6 @@ var checkURL = function(url) {
    }
 };
 
-
 //Title-case a String
 var makeTitle = function(string) {
    cnvrt = function() {
@@ -64,6 +62,11 @@ var makeTitle = function(string) {
    return newTitle;
 };
 
+//Convert Separator
+var changeSeparator = function(jobString) {
+   jobList = jobString.replace(/\,/g," /");
+   return jobList;
+};
 
 
 //OUTPUT
@@ -82,6 +85,10 @@ console.log(urlCheck);
 //Title-case
 makeTitle(movieTitle);
 console.log(newTitle);
+
+//Convert Separators
+changeSeparator(jobs);
+console.log(jobList);
 
 
 /*
