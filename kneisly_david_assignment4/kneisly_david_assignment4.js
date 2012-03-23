@@ -7,7 +7,9 @@
 
 var phoneNumber = "864-810-0318";
 var emailAddress = "mostamazingpersonever@gmail.com";
-var website = "http://www.facebook.com";
+var website = "https://www.facebook.com";
+var movieTitle = "back to the future";
+
 
 //STRING
 //Does a string follow a pattern like a phone number?
@@ -53,7 +55,18 @@ var checkURL = function(url) {
 };
 
 
+//Title-case a String
+var makeTitle = function(string) {
+   cnvrt = function() {
+      return arguments[0].toUpperCase();
+   }
+   newTitle = string.toLowerCase().replace(/\b[a-z]/g, cnvrt);
+   return newTitle;
+};
 
+
+
+//OUTPUT
 //String: Phone Number Format
 checkPhone(phoneNumber);
 console.log(phoneCheck);
@@ -66,11 +79,14 @@ console.log(emailCheck);
 checkURL(website);
 console.log(urlCheck);
 
+//Title-case
+makeTitle(movieTitle);
+console.log(newTitle);
+
 
 /*
 
 STRINGS
-   * Title-case a string (split into words, then uppercase the first letter of each word)
    * Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" → "a/b/c".
 
 NUMBERS
