@@ -5,11 +5,12 @@
 
 //GLOBAL VARIABLES
 
-var phoneNumber = "864-810-0318";
-var emailAddress = "mostamazingpersonever@gmail.com";
+var phoneNumber = "864-867-5309";
+var emailAddress = "tommy2tones@gmail.com";
 var website = "https://www.facebook.com";
 var movieTitle = "back to the future";
 var jobs = "Programer, Analyst, Consultant, Secret Agent";
+var separator = " /";
 var gigawatts = 1.212934;
 
 
@@ -56,16 +57,16 @@ var checkURL = function(url) {
 
 //Title-case a String
 var makeTitle = function(title) {
-   cnvrt = function() {
+   titleCase = function() {
       return arguments[0].toUpperCase();
    }
-   newTitle = title.toLowerCase().replace(/\b[a-z]/g, cnvrt);
+   newTitle = title.toLowerCase().replace(/\b[a-z]/g, titleCase);
    return newTitle;
 };
 
 //Convert Separator
-var changeSeparator = function(jobString) {
-   jobList = jobString.replace(/\,/g," /");
+var changeSeparator = function(jobString,sep) {
+   jobList = jobString.replace(/\,/g,sep);
    return jobList;
 };
 
@@ -96,7 +97,7 @@ makeTitle(movieTitle);
 console.log(newTitle);
 
 //String: Convert Separators
-changeSeparator(jobs);
+changeSeparator(jobs,separator);
 console.log(jobList);
 
 //Number: Set Decimal Places
