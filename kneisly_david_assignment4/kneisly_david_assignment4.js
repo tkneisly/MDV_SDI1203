@@ -18,7 +18,14 @@ var gigawatts = 1.212934;
 //Does a string follow a pattern like a phone number?
 var checkPhone = function(number) {
    phoneCheck = "";
-   var phone = /^(\d{3})[- ](\d{3})[- ](\d{4})$/;
+   var phone = /^(\d{3})[- ](\d{3})[- ](\d{4})/;
+      // Regex Explanation for phone:
+      // ^ = Start of the string
+      // (\d{3}) = 1st group.  Match digits 0-9, for 3 digits.
+      // [- ] = Match either '-' or ' '.
+      // (\d{3}) = 2nd group.  Match digits 0-9, for 3 digits.
+      // [- ] = Match either '-' or ' '.
+      // (\d{4})$ = 3rd group.  Match digits 0-9, for 4 digits.
    if (number.match(phone)) {
       return (phoneCheck = "Phone format for " + number + " is correct.");
    } else {
@@ -29,7 +36,15 @@ var checkPhone = function(number) {
 //Does a string follow a pattern like an email address?
 var checkEmail = function(address) {
    emailCheck = "";
-   var email = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
+   var email = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+/;
+      //Regex Explanation for email:
+      // ^ = Start of the string
+      // ([a-zA-Z0-9_.-])+ = 1st group.  Match any character in 'a'-'z', 'A'-'Z', 0-9, '_', '.', and '-'.
+      // @ = '@'
+      // ([a-zA-Z0-9_.-])+ = 2nd group.  Match any character in 'a'-'z', 'A'-'Z', 0-9, '_', '.', and '-'.
+      // . = '.'
+      // ([a-zA-Z])+ = 3rd group.  Match any character in 'a'-'z', or 'A'-'Z'.
+      // ([a-zA-Z])+ = 4th group.  Match any character in 'a'-'z', or 'A'-'Z'.
    if (email.test(address)) {
       return (emailCheck = "The email address, '" + address + "', is valid.");
    } else {
@@ -42,7 +57,26 @@ var checkURL = function(url) {
    urlCheck = "";
    var isSecure = "";
    var siteSecure = /(https)/;
-   var isSite = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+   var isSite = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@\-\/]))?/;
+      // Regex Explanation of url
+      // /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+      // // ([a-zA-Z0-9_.-])+ = 1st group.  Match any character in 'a'-'z', 'A'-'Z', 0-9, '_', '.', and '-'.
+      // (http|https) = 1st group.  Looks for 'http' OR 'https'.
+      // :\/\/ = '://'
+      // (\w+:{0,1}\w*@)? = 2nd group.  Only last repition will be stored.  See breakdown:
+      //    \w+ = Word characters 'a'-'z', 'A'-'Z', 0-9, and '_', matched 1 or more times.
+      //    :{0,1} = Matches ':' 0-1 times (as most as possible)
+      //    \w* = Word characters 'a'-'z', 'A'-'Z', 0-9, and '_', matched 0 or more times.
+      //    @ = '@'
+      // (\S+) = 3rd group.  Matches non-whitespace 1 or more times.
+      // (:[0-9]+)? = 4th group.  Only last repition will be stored.  See breakdown:
+      //    : = ':'
+      //    [0-9]+ = Matches any of 0-9, 1 or more times.
+      // (\/|\/([\w#!:.?+=&%@!\-\/]))? = 5th and 6th groups.  Only last repition of 5th group will be stored.  See breakdown:
+      //    5th group:
+      //    \/|\/ = '/' OR '/'
+      //       6th group:
+      //       [\w#!:.?+=&%@!\-/] = Any word characters ('a'-'z', 'A'-'Z', 0-9, and '_') and any of these characters (#, !, :, ., ?, +, =, &, %, @, -, /).   
    if (isSite.test(url)) {
       if  (siteSecure.test(url)) {
          isSecure = "is a secure site.";
@@ -67,6 +101,8 @@ var makeTitle = function(title) {
 //Convert Separator
 var changeSeparator = function(jobString,sep) {
    jobList = jobString.replace(/\,/g,sep);
+      //Regex Explanation for jobList
+      //\,/g = ',/' globally
    return jobList;
 };
 
