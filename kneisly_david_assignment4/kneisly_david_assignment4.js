@@ -12,6 +12,13 @@ var movieTitle = "back to the future";
 var jobs = "Programer, Analyst, Consultant, Secret Agent";
 var separator = " /";
 var gigawatts = 1.212934;
+var originYear = 1985;
+var arrivalYear = 1889;
+var wantToTravel = "100 years";
+var errorMargin = "5 years";
+var trilogyEpisode = "3";
+var timelines = [1955,1985,2015];
+
 
 
 //STRING
@@ -98,11 +105,11 @@ var makeTitle = function(title) {
    return newTitle;
 };
 
-//Convert Separator
+//Convert a Separator
 var changeSeparator = function(jobString,sep) {
    jobList = jobString.replace(/\,/g,sep);
       //Regex Explanation for jobList
-      //\,/g = ',/' globally
+      //\,/g =Match ',/' globally
    return jobList;
 };
 
@@ -112,6 +119,29 @@ var changeSeparator = function(jobString,sep) {
 var setDecimal = function(floatNum) {
    newNumber = floatNum.toFixed(2);
    return newNumber;
+};
+
+//Fuzzy-match a Number, above or below another number, within a certain percent range
+var findTolerance = function(base,fault,target,margin){
+   var percent = 100,
+   withinTolerance = "",
+   tolerance = "",
+   a = base,
+   b = fault,
+   m = (Math.abs(margin.match(/\d+/))),
+   t = (Math.abs(target.match(/\d+/))),
+   x = (Math.abs((a-b) / t) * percent),
+   z = (Math.abs(percent - x).toFixed(0))
+   ;
+   if ((Math.abs(percent-x)) <= m) {
+      withinTolerance = true;
+      tolerance = "The arrival year is " + z + "% off, but still " + (m-z) + "% within the margin of error.";
+   } else {
+      withinTolerance = false;
+      tolerance = "The arrival year is " + z + "% off, and is " + (z-m) + "% outside the margin of error.";
+   };
+   return sayTolerance = tolerance,
+   declareTolerance = withinTolerance;
 };
 
 
@@ -140,25 +170,18 @@ console.log(jobList);
 setDecimal(gigawatts);
 console.log(newNumber);
 
+//Number: Fuzzy-match
+findTolerance(originYear,arrivalYear,wantToTravel,errorMargin);
+console.log(declareTolerance);
+console.log(sayTolerance);
+
 
 /*
 ASSIGNMENT FUNCTIONS
 
 STRINGS
 
-   Does a string follow a 123-456-7890 pattern like a phone number?
-
-   Does a string follow anaaa@bbb.ccc pattern like an email address?
-
-   Is the string a URL? (Does it start with http: or https:?)
-
-   Title-case a string (split into words, then uppercase the first letter of each word)
-
-   Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" → "a/b/c".
-
 NUMBERS
-   
-   Format a number to use a specific number of decimal places, as for money: 2.1 → 2.10
 
    Fuzzy-match a number: is the number above or below a number within a certain percent?
 
@@ -174,4 +197,4 @@ ARRAYS
 
    Given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2},{a:3},{a:1}] → [{a:1},{a:2},{a:3}].
 
-/*
+*/
