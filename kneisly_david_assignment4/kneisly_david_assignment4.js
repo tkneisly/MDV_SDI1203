@@ -129,7 +129,11 @@ var findTolerance = function(base,fault,target,margin){
    a = base,
    b = fault,
    m = (Math.abs(margin.match(/\d+/))),
+      //Regex Explanation:
+      //\d+ = Match all digits
    t = (Math.abs(target.match(/\d+/))),
+      //Regex Explanation:
+      //\d+ = Match all digits
    x = (Math.abs((a-b) / t) * percent),
    z = (Math.abs(percent - x).toFixed(0))
    ;
