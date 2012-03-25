@@ -14,6 +14,7 @@ var separator = " /";
 var gigawatts = 1.212934;
 var originYear = 1985;
 var arrivalYear = 1889;
+var veryImportantDate = "11/5";
 var wantToTravel = "100 years";
 var errorMargin = "5 years";
 var trilogyEpisode = "3";
@@ -127,16 +128,19 @@ var findTolerance = function(base,fault,target,margin){
    withinTolerance = "",
    tolerance = "",
    a = base,
-   b = fault,
-   m = (Math.abs(margin.match(/\d+/))),
-      //Regex Explanation:
-      //\d+ = Match all digits
-   t = (Math.abs(target.match(/\d+/))),
-      //Regex Explanation:
-      //\d+ = Match all digits
-   x = (Math.abs((a-b) / t) * percent),
-   z = (Math.abs(percent - x).toFixed(0))
-   ;
+   b = fault;
+   makeNumbers = function() {
+      m = (Math.abs(margin.match(/\d+/)));
+         //Regex Explanation:
+         //\d+ = Match all digits
+      t = (Math.abs(target.match(/\d+/)));
+         //Regex Explanation:
+         //\d+ = Match all digits
+      x = (Math.abs((a-b) / t) * percent),
+      z = (Math.abs(percent - x).toFixed(0));
+      return m,t,x,z;
+   }; // Number Function #4:  Convert String Into Number
+   makeNumbers(target,margin);
    if ((Math.abs(percent-x)) <= m) {
       withinTolerance = true;
       tolerance = "The arrival year is " + z + "% off, but still " + (m-z) + "% within the margin of error.";
@@ -147,6 +151,24 @@ var findTolerance = function(base,fault,target,margin){
    return sayTolerance = tolerance,
    declareTolerance = withinTolerance;
 };
+
+//Find the Number of Days Between Two Dates
+var getDaysBetween = function(date,origin,arrival) {
+   var originDate = (date + "/" + origin),
+   arrivalDate = (date + "/" + arrival),
+   date1 = new Date(originDate),
+   date2 = new Date(arrivalDate);
+   daysBetweenDates = function(date1,date2) {
+      var oneDay = 1000 * 60 * 60 * 24;
+      var date1_ms = date1.getTime(date1);
+      var date2_ms = date2.getTime(date2);
+      var difference_ms = Math.abs(date1_ms - date2_ms);
+      daysBetween = Math.round(difference_ms/oneDay);
+      return daysBetween;
+   }
+   daysBetweenDates(date1,date2);
+   return daysBetween;
+}; //Citation: http://www.mcfedries.com/javascript/daysbetween.asp
 
 
 //OUTPUT
@@ -179,6 +201,10 @@ findTolerance(originYear,arrivalYear,wantToTravel,errorMargin);
 console.log(declareTolerance);
 console.log(sayTolerance);
 
+//Number: Difference Between Two Dates
+getDaysBetween(veryImportantDate,originYear,arrivalYear);
+console.log(daysBetween);
+
 
 /*
 ASSIGNMENT FUNCTIONS
@@ -186,12 +212,6 @@ ASSIGNMENT FUNCTIONS
 STRINGS
 
 NUMBERS
-
-   Fuzzy-match a number: is the number above or below a number within a certain percent?
-
-   Find the number of hours or days difference between two dates.
-
-   Given a string version of a number such as "42", return the value as an actual Number, such as 42.
 
 ARRAYS
    
