@@ -21,25 +21,46 @@ var trilogyEpisode = "3";
 var timelines = [1955,1985,2015];
 
 
-
 //STRING
-//Does a string follow a pattern like a phone number?
-var checkPhone = function(number) {
-   phoneCheck = "";
-   var phone = /^(\d{3})[- ](\d{3})[- ](\d{4})/;
-      // Regex Explanation for phone:
-      // ^ = Start of the string
-      // (\d{3}) = 1st group.  Match digits 0-9, for 3 digits.
-      // [- ] = Match either '-' or ' '.
-      // (\d{3}) = 2nd group.  Match digits 0-9, for 3 digits.
-      // [- ] = Match either '-' or ' '.
-      // (\d{4})$ = 3rd group.  Match digits 0-9, for 4 digits.
-   if (number.match(phone)) {
-      return (phoneCheck = "Phone format for " + number + " is correct.");
-   } else {
-      return (phoneCheck = "Phone format for " + number + " is bad.");
+var checkString = function() {
+   var checkPhone = function(string) {
+      var regPhone = /^(\d{3})[- ](\d{3})[- ](\d{4})/;
+         // Regex Explanation for phone:
+         // ^ = Start of the string
+         // (\d{3}) = 1st group.  Match digits 0-9, for 3 digits.
+         // [- ] = Match either '-' or ' '.
+         // (\d{3}) = 2nd group.  Match digits 0-9, for 3 digits.
+         // [- ] = Match either '-' or ' '.
+         // (\d{4})$ = 3rd group.  Match digits 0-9, for 4 digits.
+      if (string.match(regPhone)) {
+         console.log("Phone format for " + string + " is correct.");
+      } else {
+         console.log("Phone format for " + string + " is bad.");
+      }
+   };
+   return {
+      "phone": checkPhone
    }
 };
+var phoneChecker = checkString(phoneNumber);
+console.log(phoneChecker.phone(phoneNumber));
+//Does a string follow a pattern like a phone number?
+// var checkPhone = function(number) {
+//    phoneCheck = "";
+//    var phone = /^(\d{3})[- ](\d{3})[- ](\d{4})/;
+//       // Regex Explanation for phone:
+//       // ^ = Start of the string
+//       // (\d{3}) = 1st group.  Match digits 0-9, for 3 digits.
+//       // [- ] = Match either '-' or ' '.
+//       // (\d{3}) = 2nd group.  Match digits 0-9, for 3 digits.
+//       // [- ] = Match either '-' or ' '.
+//       // (\d{4})$ = 3rd group.  Match digits 0-9, for 4 digits.
+//    if (number.match(phone)) {
+//       return (phoneCheck = "Phone format for " + number + " is correct.");
+//    } else {
+//       return (phoneCheck = "Phone format for " + number + " is bad.");
+//    }
+// };
 
 //Does a string follow a pattern like an email address?
 var checkEmail = function(address) {
@@ -173,8 +194,11 @@ var getDaysBetween = function(date,origin,arrival) {
 
 //OUTPUT
 //String: Phone Number Format
-checkPhone(phoneNumber);
-console.log(phoneCheck);
+// checkPhone(phoneNumber);
+// console.log(phoneCheck);
+// var test = checkString();
+// var phoneChecker = checkPhone.phone(phoneNumber);
+// console.log(phoneChecker);
 
 //String: Email Format
 checkEmail(emailAddress);
